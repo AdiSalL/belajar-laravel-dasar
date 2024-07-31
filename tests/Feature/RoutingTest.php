@@ -20,4 +20,15 @@ class RoutingTest extends TestCase
         $response->assertStatus(200)
         ->assertSeeText("Hello World");
     }
+
+    public function testRedirect() {
+        $this->get("/hello")
+        ->assertRedirect("/adi")
+        ->assertFound("/adi");
+    }
+
+    public function testFallback() {
+        $this->get("/madang")
+        ->assertSeeText("Halaman Tidak Tersedia || 404 Status Not Found");
+    }
 }
