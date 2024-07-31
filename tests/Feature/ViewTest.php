@@ -27,4 +27,8 @@ class ViewTest extends TestCase
         ->assertSeeText("Hello World;, Salafudin !")
         ->assertSeeText("saya sudah belajar laravel selama 3 hari di channel PZN");
     }
+
+    public function testViewWithoutRoute(){
+        $this->view("hello", ["name" => "adi"])->assertSeeText("Hello, adi !");
+    }
 }
