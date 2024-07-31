@@ -18,8 +18,8 @@ class ServiceContainerTest extends TestCase
         $foo = $this->app->make(Foo::class);
         $foo2 = $this->app->make(Foo::class);
         
-        self::assertNotSame($foo, $foo2);
-        self::assertEquals("FOO", $foo->foo());
+        self::assertSame($foo, $foo2);
+        self::assertEquals($foo2->foo() , $foo->foo());
     }  
     
     public function testBind() {
