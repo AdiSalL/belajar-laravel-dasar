@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\InputController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,3 +72,14 @@ Route::get("/produk-redirect/{id}", function($productId) {
 Route::get("controller/hello/{name}", [HelloController::class, "hello"]);
 
 Route::get("controller/request", [HelloController::class, "request"]);
+
+Route::get("input/hello", [InputController::class , "hello"]);
+Route::post("input/hello", [InputController::class , "hello"]);
+
+Route::post("input/helloFirst", [InputController::class , "helloFirstName"]);
+
+Route::post("input/helloInput", [InputController::class , "helloInput"]);
+Route::get("input/helloInput", [InputController::class , "helloInput"]);
+
+Route::post("/input/name", [InputController::class, "arrayInput"]);
+

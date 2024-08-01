@@ -22,7 +22,6 @@ class HelloController extends Controller
         return $request->path() . PHP_EOL .
         $request->url() . PHP_EOL .
         $request->fullUrl() . PHP_EOL .
-        $request->header("accept") . PHP_EOL
-        ;
+        $request->header("accept") . PHP_EOL;
     }
 }
