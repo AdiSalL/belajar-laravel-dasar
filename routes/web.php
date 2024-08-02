@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
+use App\Http\Controllers\ResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,3 +85,19 @@ Route::get("input/helloInput", [InputController::class , "helloInput"]);
 
 Route::post("/input/name", [InputController::class, "arrayInput"]);
 
+Route::post("input/type", [InputController::class, "inputType"]);
+
+Route::post("input/filter/only", [InputController::class, "filterOnly"]);
+Route::post("input/filter/except", [InputController::class, "filterExcept"]);
+
+Route::post("input/filter/merge", [InputController::class, "filterMerge"]);
+
+Route::post("file/upload", [FileController::class, "upload"]);
+
+Route::get("hello/response", [ResponseController::class, "response"]);
+Route::get("hello/header", [ResponseController::class, "header"]);
+
+Route::get("hello/view", [ResponseController::class, "responseView"]);
+Route::get("hello/json", [ResponseController::class, "responseJson"]);
+Route::get("hello/file", [ResponseController::class, "responseFile"]);
+Route::get("hello/file/download", [ResponseController::class, "responseDownload"]);

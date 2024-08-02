@@ -33,4 +33,36 @@ class InputController extends Controller
         return json_encode($request);
     }
 
+    public function inputType(Request $request) {
+        $name = $request->input("name");
+        $married = $request->boolean("married");
+        $birthDate = $request->date("birth_date", "Y-m-d");
+
+        return json_encode([
+            "name" => $name,
+            "married" => $married,
+            "birth_date" => $birthDate->format("Y-m-d")
+        ]);
+    }
+
+    public function filterOnly(Request $request) {
+        $name = $request->only(["name.first", "name.last"]);
+        return json_encode($name);
+    }
+
+    public function filterExcept(Request $request){
+        $user = $request->except("admin");
+        return json_encode($user);
+    }
+
+    public function filterMerge(Request $request){
+        $request->merge([
+            "admin" => false,
+        ]);
+        $user = $request->input();
+        return json_encode($user);
+    }
+
+
 }
+ 
