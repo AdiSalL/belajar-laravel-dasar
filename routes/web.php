@@ -7,6 +7,7 @@ use App\Http\Controllers\InputController;
 use App\Http\Controllers\ResponseController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\RedirectController;
+use App\Http\Middleware\ContohMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -116,4 +117,6 @@ Route::get("/redirect/name/{name}", [RedirectController::class, "redirectHello"]
 Route::get("/redirect/action", [RedirectController::class, "redirectAction"]);
 Route::get("/redirect/youtube", [RedirectController::class, "redirectAway"]);
 
-
+Route::get("/middleware/api", function () {
+    return "API";
+})->middleware(ContohMiddleware::class);
