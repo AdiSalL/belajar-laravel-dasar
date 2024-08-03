@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\ResponseController;
+use App\Http\Controllers\CookieController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -101,3 +103,8 @@ Route::get("hello/view", [ResponseController::class, "responseView"]);
 Route::get("hello/json", [ResponseController::class, "responseJson"]);
 Route::get("hello/file", [ResponseController::class, "responseFile"]);
 Route::get("hello/file/download", [ResponseController::class, "responseDownload"]);
+
+Route::get("/cookie/set", [CookieController::class, "createCookie"]);
+Route::get("/cookie/get", [CookieController::class, "getCookie"]);
+Route::get("/cookie/clear", [CookieController::class, "clearCookie"]);
+
