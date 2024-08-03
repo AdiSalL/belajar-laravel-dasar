@@ -119,4 +119,9 @@ Route::get("/redirect/youtube", [RedirectController::class, "redirectAway"]);
 
 Route::get("/middleware/api", function () {
     return "API";
-})->middleware(ContohMiddleware::class);
+})->middleware(["contoh:PZN,401"]);
+
+
+Route::get("/middleware/group", function () {
+    return "GROUP";
+})->middleware(["contoh"]);
